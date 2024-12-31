@@ -22,6 +22,11 @@ app.use("/api/v2",toposts) //mounted and used successfully
 const {dbConnect}=require('./config/database')
 dbConnect()
 
+//default route
+app.get("/",(req,res)=>{
+    res.send(`<h1>This is homepage</h1>`)
+})
+
 
 
 
