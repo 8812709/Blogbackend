@@ -38,3 +38,16 @@ exports.toCreateComment=async(req,res)=>{
     }
     
 }
+
+//to get all the comments of a particular post 
+exports.toGetComments=async(req,res)=>{
+    //fetching the id of the post i want the comments for
+    const {postid}=req.body
+    //get request which will return all the details of a particular post 
+    const CommentInfo=await Comment.findById({post:postid})
+    res.status(200).json({
+        success:true,
+        commentdata:CommentInfo,
+        message:`The comments of ${postid} has been fetched successfully`
+    })
+}
