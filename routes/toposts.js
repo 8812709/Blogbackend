@@ -5,9 +5,8 @@ const router=express.Router()
 
 //importing the controller of the topost 
 const {toGetPost,toCreatePost}=require('../controllers/toPost') 
-const {toUpdateLike}=require("../controllers/tolike")
-const {toCreateComment,toGetComments}=require("../controllers/tocomment")
-
+const {toLike,toUnlike}=require("../controllers/toLike")
+const {toCreateComment,toGetComments}=require("../controllers/toComment")
 
 //to make the api routes 
 
