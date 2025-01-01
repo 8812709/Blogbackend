@@ -18,12 +18,12 @@ router.post('/posts/create',toCreatePost)
 
 
 //to update the like just by toggle
-router.put('/likes/like/:id',toUpdateLike)
-router.put('/likes/unlike/:id',toUpdateLike)
+router.put('/likes/like',toUpdateLike)
+router.put('/likes/unlike',toUpdateLike)
 
 
 //to create comments and get comments
-router.put('/comments/create/:id',toCreateComment)
-router.get('/comments/:id',toGetComments)
+router.put('/comments/create',toCreateComment)
+router.get('/comments',toGetComments)
 
 module.exports=router
