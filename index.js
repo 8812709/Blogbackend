@@ -15,7 +15,7 @@ app.listen(PORT,()=>{
 })
 
 //lets import the routers here and by mouting we will use it
-const toposts=require('./routes/toposts')
+const toposts=require('./routes/blogRoutes')
 app.use("/api/v2",toposts) //mounted and used successfully
 
 //importing db function and connecting it with the server by calling it

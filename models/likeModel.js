@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 
 //make the schema for likes
-//konse post me like kia he(post id) and konse user ne like kia (username)
+//konse post me like kia he(post id needed) and konse user ne like kia (username)
 const likeSchema=mongoose.Schema({
     post:{
         type:mongoose.Schema.Types.ObjectId,
