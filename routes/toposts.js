@@ -18,8 +18,8 @@ router.post('/posts/create',toCreatePost)
 
 
 //to update the like just by toggle
-router.put('/likes/like',toUpdateLike)
-router.put('/likes/unlike',toUpdateLike)
+router.put('/likes/like',toLike)
+router.put('/likes/unlike',toUnlike)
 
 
 //to create comments and get comments
