@@ -52,7 +52,7 @@ exports.toGetComments=async(req,res)=>{
     //get request which will return all the details of a particular post 
     const CommentInfo=await Comment.find({post:postid})
     const userName=await Post.findById(postid)
-    if(!CommentInfo || !username){
+    if(!CommentInfo || !userName){
         return res.status(404).json({
             message:"Not FOund"
         })
