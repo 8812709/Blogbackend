@@ -15,6 +15,11 @@ exports.toLike=async(req,res)=>{
     const savedLike=await liked.save()
     //making sure it also update the array in the post schema db so that that i can know how many liked my post
     const updatedPost=await Post.findByIdAndUpdate(post,{$push:{likes:savedLike._id}},{new:true})
+    if(!updatedPost || !savedLike){
+        return res.status(404).json({
+            message:"Not FOund"
+        })
+    }
     res.status(200).json({
         success:true,
         postdata:updatedPost,
@@ -45,6 +50,13 @@ exports.toUnlike=async(req,res)=>{
         postinfo:updatedPost,
         deletedInfo:deletedLike
     })
+    if(!deletedLike || !updatedPost)
+    {
+            return res.status(404).json({
+                message:"Not FOund"
+            })
+        
+    }
     }
     catch(e){
         console.error(e)

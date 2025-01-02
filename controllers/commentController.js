@@ -18,6 +18,11 @@ exports.toCreateComment=async(req,res)=>{
     //at first it find the id of post in which i commented using post(here post=post_id) and then it pushes the savedcomment id into the post schema database and then using populate on comments it makes sure it returns all the information related with the id inside the comments and exec is used to execute it
 
     const updatedPost=await Post.findByIdAndUpdate(post,{$push:{comments:savedComment._id}},{new:true})
+    if(!updatedPost){
+        return res.status(404).json({
+            message:"Not FOund"
+        })
+    }
     res.status(200).json(
         {
             success:true,
@@ -47,6 +52,11 @@ exports.toGetComments=async(req,res)=>{
     //get request which will return all the details of a particular post 
     const CommentInfo=await Comment.find({post:postid})
     const userName=await Post.findById(postid)
+    if(!CommentInfo || !username){
+        return res.status(404).json({
+            message:"Not FOund"
+        })
+    }
     res.status(200).json({
         success:true,
         username:userName.user,

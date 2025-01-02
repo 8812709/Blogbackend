@@ -11,6 +11,11 @@ exports.toCreatePost=async(req,res)=>{
         //to make changes in the db of postschema i created a object and then saved it 
         const post=new Post({user,title,body})
         const savedPost=await post.save()
+        if(!savedPost){
+            return res.status(404).json({
+                message:"Not FOund"
+            })
+        }
         //getting the response 
         res.status(200).json({
             success:true,
@@ -33,6 +38,11 @@ exports.toGetPost=async(req,res)=>{
     try {
         //to make a get request which gives all the info
         const allPosts=await Post.find({}).populate("comments").populate("likes").exec()
+        if(!allPosts){
+            return res.status(404).json({
+                message:"Not FOund"
+            })
+        }
         //getting the response 
         res.status(200).json({
             success:true,
