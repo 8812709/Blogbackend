@@ -37,13 +37,13 @@ exports.toUnlike=async(req,res)=>{
     try{
     //fetching the post id and like id 
     const{post,likeId}=req.body
-    
+
     const deletedLike=await Like.findOneAndDelete({post:post,_id:likeId},{new:true})
     const updatedPost=await Post.findByIdAndUpdate(post,{$pull:{likes:likeId}},{new:true})
     res.status(200).json({
         sucess:true,
         postinfo:updatedPost,
-        likesinfo:deletedLike
+        deletedInfo:deletedLike
     })
     }
     catch(e){

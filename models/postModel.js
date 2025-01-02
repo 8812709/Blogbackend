@@ -25,7 +25,7 @@ const postSchema=mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Like"
     }],
-    Comments:[{
+    comments:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Comment"
     }]
